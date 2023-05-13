@@ -5,4 +5,21 @@ Items: {
 		DisplayName: Basic Wand
 		Tooltip: ""
 	}
-} 
+
+	TestSpell.DisplayName: Test Spell
+}
+
+# {$Items.{0}.Description}
+Spells.Tooltip:
+	'''
+	{0}
+
+	{1} {2} damage
+	{3}% crit chance
+	{4} knockback
+	{5}° scatter
+
+	{6} mana cost
+	{7}s delay
+	{8}s recharge time
+	'''
