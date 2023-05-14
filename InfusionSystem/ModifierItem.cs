@@ -10,6 +10,7 @@ namespace LoitaMod.InfusionSystem
     public abstract class ModifierItem : InfusionItem
     {
         public ModifierStats Stats = new ModifierStats();
+        public ModifierActions Actions = new ModifierActions();
 
         public virtual void SetModifierDefaults()
         {
@@ -25,6 +26,7 @@ namespace LoitaMod.InfusionSystem
         {
             ModifierItem clone = (ModifierItem)MemberwiseClone();
             clone.Stats = Stats.Clone();
+            clone.Actions = Actions.Clone();
             return clone;
         }
     }
@@ -43,6 +45,17 @@ namespace LoitaMod.InfusionSystem
         public ModifierStats Clone()
         {
             return (ModifierStats)MemberwiseClone();
+        }
+    }
+    public class ModifierActions
+    {
+        public ModifierActions Clone()
+        {
+            return (ModifierActions)MemberwiseClone();
+        }
+        public virtual void ModifyProjectiles(Projectile[] projectiles)
+        {
+
         }
     }
 }

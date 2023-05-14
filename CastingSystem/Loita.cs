@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LoitaMod.WandSystem
+namespace LoitaMod.CastingSystem
 {
-    internal class Loita : ModPlayer
+    public class Loita : ModPlayer
     {
         public List<Item> Sequence = new List<Item>();
+        public List<Assemblage> Assemblages = new List<Assemblage>();
     }
 }

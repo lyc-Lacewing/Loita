@@ -1,12 +1,14 @@
-﻿using System;
+﻿using LoitaMod.InfusionSystem;
+using LoitaMod.WandSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LoitaMod.WandSystem
+namespace LoitaMod.CastingSystem
 {
-    internal class Caster
+    public class Caster
     {
         public static void InitializeInfusions(Player player, Item item)
         {
@@ -27,6 +29,9 @@ namespace LoitaMod.WandSystem
     }
     public class Assemblage
     {
-
+        public List<SpellStats> SpellStats = new List<SpellStats>();
+        public List<SpellActions> SpellActions = new List<SpellActions>();
+        public List<ModifierStats> ModifierStats = new List<ModifierStats>();
+        public List<ModifierActions> ModifierActions = new List<ModifierActions>();
     }
 }
