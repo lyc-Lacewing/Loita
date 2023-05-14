@@ -18,17 +18,17 @@ namespace Loita.InfusionSystem
             
         }
 
-        public override ModItem Clone(Item newEntity)
-        {
-            SpellItem clone = (SpellItem)base.Clone(Item);
-            clone.Stats = Stats.Clone();
-            return clone;
-        }
         public override LocalizedText Tooltip => Language.GetOrRegister("Mods.Loita.Spells.Tooltip").WithFormatArgs(this.GetTooltipArgs());
         public override void SetDefaults()
         {
             base.SetDefaults();
             SetSpellDefaults();
+        }
+        public override ModItem Clone(Item newEntity)
+        {
+            SpellItem clone = (SpellItem)base.Clone(Item);
+            clone.Stats = Stats.Clone();
+            return clone;
         }
     }
 
