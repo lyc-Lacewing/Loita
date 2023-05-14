@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Loita.Utils
 {
-    public static class MathUtil
+    public static class GeneralUtil
     {
         /// <summary>
         /// 
@@ -48,6 +49,20 @@ namespace Loita.Utils
         public static double TickToSecond(this int tick)
         {
             return Math.Round(tick / (double)60, 2);
+        }
+        public static string ToJSON(object obj)
+        {
+            var option = new JsonSerializerOptions();
+            option.IncludeFields = true;
+            option.IgnoreReadOnlyFields = true;
+            option.IgnoreReadOnlyProperties = true;
+            var result = JsonSerializer.Serialize(obj, option);
+            return result;
+        }
+        public static T JSONToObj<T>(string json)
+        {
+            var result = JsonSerializer.Deserialize<T>(json);
+            return result;
         }
     }
 }

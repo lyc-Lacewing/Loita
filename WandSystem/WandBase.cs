@@ -1,4 +1,5 @@
 ﻿using Loita.InfusionSystem;
+using Loita.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,6 @@ namespace Loita.WandSystem
     internal class WandBase : GlobalItem
     {
         public static HashSet<int> Wands = new HashSet<int>();
-        public static List<TagCompound> WandSaves = new List<TagCompound>();
         private void addVanillaWands()
         {
             Wands.Add(ItemID.WandofSparking);
@@ -40,10 +40,19 @@ namespace Loita.WandSystem
         }
         public override void SaveData(Item item, TagCompound tag)
         {
-            //TODO save data
+            tag.Add("Stats", GeneralUtil.ToJSON(Stats));
+            tag.Add("Embeds", Infusions.Embeds);
+            tag.Add("Slots", Infusions.Slots);
         }
         public override void LoadData(Item item, TagCompound tag)
         {
+            Stats = GeneralUtil.JSONToObj<WandStats>(tag["Stats"].ToString());
+            Infusions.Embeds = (Item[])tag["Embeds"];
+            Infusions.Slots = (Item[])tag["Slots"];
+        }
+        public override bool? UseItem(Item item, Player player)
+        {
+            return base.UseItem(item, player);
         }
     }
 
