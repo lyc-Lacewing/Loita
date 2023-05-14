@@ -18,6 +18,12 @@ namespace Loita.InfusionSystem
             
         }
 
+        public override ModItem Clone(Item newEntity)
+        {
+            SpellItem clone = (SpellItem)base.Clone(Item);
+            clone.Stats = Stats.Clone();
+            return clone;
+        }
         public override LocalizedText Tooltip => Language.GetOrRegister("Mods.Loita.Spells.Tooltip").WithFormatArgs(this.GetTooltipArgs());
         public override void SetDefaults()
         {
@@ -36,7 +42,7 @@ namespace Loita.InfusionSystem
         /// <summary>
         /// Projectile used by the spell use, -1 for none.
         /// </summary>
-        public int ProjID = -1;
+        public int[] ProjIDs = new int[] { };
         /// <summary>
         /// Damage of the spell.
         /// </summary>
@@ -66,11 +72,11 @@ namespace Loita.InfusionSystem
         /// <summary>
         /// Delay between cast of this spell and cast of the next spell.
         /// </summary>
-        public int Delay = 12;
+        public int Delay = 6;
         /// <summary>
         /// Recharge time added by the spell to the wand.
         /// </summary>
-        public int Recharge = 12;
+        public int Recharge = 6;
         /// <summary>
         /// Mana cost of the spell.
         /// </summary>
@@ -78,18 +84,8 @@ namespace Loita.InfusionSystem
 
         public SpellStats Clone()
         {
-            SpellStats clone = new SpellStats();
-            clone.Time = Time;
-            clone.ProjID = ProjID;
-            clone.Damage = Damage;
-            clone.DamageType = DamageType;
-            clone.CritChance = CritChance;
-            clone.KnockBack = KnockBack;
-            clone.Speed = Speed;
-            clone.Scatter = Scatter;
-            clone.Delay = Delay;
-            clone.Recharge = Recharge;
-            clone.ManaCost = ManaCost;
+            SpellStats clone = (SpellStats)MemberwiseClone();
+            clone.ProjIDs = (int[])ProjIDs.Clone();
             return clone;
         }
     }

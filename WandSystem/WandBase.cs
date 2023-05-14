@@ -14,25 +14,15 @@ namespace Loita.WandSystem
 {
     internal class WandBase : GlobalItem
     {
-        public static HashSet<int> Wands = new HashSet<int>();
-        private void addVanillaWands()
-        {
-            Wands.Add(ItemID.WandofSparking);
-        }
 
         public WandStats Stats = new WandStats();
         public WandInfusions Infusions = new WandInfusions();
 
         public override bool InstancePerEntity => true;
 
-        public override void Load()
-        {
-            addVanillaWands();
-            //TODO allow adding modded wands, even from other mods.
-        }
         public override bool AppliesToEntity(Item entity, bool lateInstantiation)
         {
-            return Wands.Contains(entity.type);
+            return WandSetup.Wands.Contains(entity.type);
         }
         public override void SetDefaults(Item entity)
         {
@@ -68,15 +58,15 @@ namespace Loita.WandSystem
         /// </summary>
         public int Recharge = 20;
 
-        //The Wand to the Sequence.
+        // The Wand to the Sequence.
         /// <summary>
         /// Critical strike chance of the Wand.
         /// </summary>
-        public int CritChance = 4;
+        public int CritChance = 0;
         /// <summary>
         /// Knockback of the Wand.
         /// </summary>
-        public float KnockBack = 1;
+        public float KnockBack = 0;
         /// <summary>
         /// Speed added to its Spells, if applicable.
         /// </summary>
@@ -90,11 +80,16 @@ namespace Loita.WandSystem
         /// <summary>
         /// Mana procided by the Wand, means the amount of increase of the holder's max mana.
         /// </summary>
-        public int Mana = 20;
+        public int Mana = 0;
         /// <summary>
         /// Mana regeneration provided by the Wand, means the amount of increase of the holder's mana regen rate.
         /// </summary>
-        public int ManaRegen = 2;
+        public int ManaRegen = 0;
+
+        public WandStats Clone()
+        {
+            return (WandStats)MemberwiseClone();
+        }
     }
 
     public class WandInfusions
@@ -107,5 +102,13 @@ namespace Loita.WandSystem
         /// Slots of the Wand.
         /// </summary>
         public Item[] Slots = new Item[] { };
+
+        public WandInfusions Clone()
+        {
+            WandInfusions clone = (WandInfusions)MemberwiseClone();
+            clone.Embeds = (Item[])Embeds.Clone();
+            clone.Slots = (Item[])Slots.Clone();
+            return clone;
+        }
     }
 }

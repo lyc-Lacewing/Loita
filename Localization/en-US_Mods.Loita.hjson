@@ -18,3 +18,13 @@ Spells.Tooltip:
 	{7}s delay
 	{8}s recharge time
 	'''
+
+Wands: {
+	Tooltip:
+		'''
+		{0}
+		{1}
+		{2}
+		{3}
+		'''
+}
