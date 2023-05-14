@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LoitaMod.WandSystem
 {
-    internal class LoitaPlayer : ModPlayer
+    internal class Loita : ModPlayer
     {
         public List<Item> Sequence = new List<Item>();
     }
