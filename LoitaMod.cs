@@ -24,6 +24,7 @@ namespace LoitaMod
 		 * 触发法术: Initiator, 法术级联中的上游法术
 		 * 跟随法术: Follower, 法术级联中的下游法术
 		 * 多重施放: Conflux, 多个法术受同一组修饰影响并同时施放
+		 * 法术单元: Assemblage, 法术修饰与法术组成的单元, 可包含多个修饰或法术
 		 */
     }
 }

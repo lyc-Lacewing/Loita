@@ -40,10 +40,6 @@ namespace LoitaMod.InfusionSystem
         /// </summary>
         public int Time = 60;
         /// <summary>
-        /// Projectile used by the spell use, -1 for none.
-        /// </summary>
-        public int[] ProjIDs = new int[] { };
-        /// <summary>
         /// Damage of the spell.
         /// </summary>
         public int Damage = 0;
@@ -84,9 +80,7 @@ namespace LoitaMod.InfusionSystem
 
         public SpellStats Clone()
         {
-            SpellStats clone = (SpellStats)MemberwiseClone();
-            clone.ProjIDs = (int[])ProjIDs.Clone();
-            return clone;
+            return (SpellStats)MemberwiseClone();
         }
     }
 }

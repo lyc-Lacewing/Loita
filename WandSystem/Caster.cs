@@ -25,4 +25,8 @@ namespace LoitaMod.WandSystem
             }
         }
     }
+    public class Assemblage
+    {
+
+    }
 }
