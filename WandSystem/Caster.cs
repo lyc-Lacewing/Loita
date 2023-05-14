@@ -10,7 +10,7 @@ namespace LoitaMod.WandSystem
     {
         public static void InitializeInfusions(Player player, Item item)
         {
-            if (!item.TryGetGlobalItem(out WandBase wand) || !player.TryGetModPlayer(out LoitaPlayer loita))
+            if (!item.TryGetGlobalItem(out WandBase wand) || !player.TryGetModPlayer(out Loita loita))
             {
                 return;
             }
