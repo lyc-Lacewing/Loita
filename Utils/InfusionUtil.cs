@@ -1,4 +1,4 @@
-﻿using Loita.InfusionSystem;
+﻿using LoitaMod.InfusionSystem;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.VisualBasic;
 using Microsoft.Xna.Framework.Design;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria.Localization;
 
-namespace Loita.Utils
+namespace LoitaMod.Utils
 {
     public static class InfusionUtil
     {
@@ -33,15 +33,15 @@ namespace Loita.Utils
         public static object[] GetTooltipArgs(this SpellItem spell)
         {
             SpellStats stats = spell.Stats;
-            return new object[] { 
-                Language.GetText($"Mods.Loita.Items.{spell.GetType().Name}.Tooltip").Value, 
-                stats.Damage, 
-                stats.DamageType.DisplayName, 
-                stats.CritChance, 
-                stats.KnockBack, 
-                stats.Scatter.RadToDeg(), 
-                stats.ManaCost, 
-                stats.Delay.TickToSecond().ToSigned(), 
+            return new object[] {
+                Language.GetText($"Mods.Loita.Items.{spell.GetType().Name}.Tooltip").Value,
+                stats.Damage,
+                stats.DamageType.DisplayName,
+                stats.CritChance,
+                stats.KnockBack,
+                stats.Scatter.RadToDeg(),
+                stats.ManaCost,
+                stats.Delay.TickToSecond().ToSigned(),
                 stats.Recharge.TickToSecond().ToSigned() };
         }
     }

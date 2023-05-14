@@ -1,5 +1,5 @@
 ﻿using Loita.InfusionSystem;
-using Loita.Utils;
+using LoitaMod.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader.IO;
 
-namespace Loita.WandSystem
+namespace LoitaMod.WandSystem
 {
     internal class WandBase : GlobalItem
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria.ID;
 
-namespace Loita.InfusionSystem
+namespace LoitaMod.InfusionSystem
 {
     public abstract class ModifierItem : InfusionItem
     {

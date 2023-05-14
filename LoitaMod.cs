@@ -1,7 +1,7 @@
 global using Terraria;
 global using Terraria.ModLoader;
 
-namespace Loita
+namespace LoitaMod
 {
 	public class LoitaMod : Mod
 	{

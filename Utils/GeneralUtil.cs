@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Loita.Utils
+namespace LoitaMod.Utils
 {
     public static class GeneralUtil
     {

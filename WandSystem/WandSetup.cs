@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria.ID;
 
-namespace Loita.WandSystem
+namespace LoitaMod.WandSystem
 {
     internal class WandSetup : ModSystem
     {

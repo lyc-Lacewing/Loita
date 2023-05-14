@@ -1,11 +1,11 @@
-﻿using Loita.InfusionSystem;
+﻿using LoitaMod.InfusionSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Loita.Items.Spells
+namespace LoitaMod.Items.Spells
 {
     internal class TestSpell : SpellItem
     {

@@ -1,4 +1,4 @@
-﻿using Loita.Utils;
+﻿using LoitaMod.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria.Localization;
 
-namespace Loita.InfusionSystem
+namespace LoitaMod.InfusionSystem
 {
     public abstract class SpellItem : InfusionItem
     {
@@ -15,7 +15,7 @@ namespace Loita.InfusionSystem
 
         public virtual void SetSpellDefaults()
         {
-            
+
         }
 
         public override LocalizedText Tooltip => Language.GetOrRegister("Mods.Loita.Spells.Tooltip").WithFormatArgs(this.GetTooltipArgs());
