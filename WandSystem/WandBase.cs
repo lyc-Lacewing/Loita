@@ -1,5 +1,4 @@
-﻿using Loita.InfusionSystem;
-using LoitaMod.Utils;
+﻿using LoitaMod.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;

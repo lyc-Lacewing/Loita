@@ -14,7 +14,7 @@ namespace LoitaMod.WandSystem
         public static HashSet<int> VanillaWands = new HashSet<int>()
         {
             ItemID.WandofSparking
-        }
+        };
         public override void PostSetupContent()
         {
             foreach (int type in VanillaWands)
