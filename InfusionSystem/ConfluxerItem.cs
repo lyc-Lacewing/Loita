@@ -7,7 +7,7 @@ using Terraria.ID;
 
 namespace Loita.InfusionSystem
 {
-    internal abstract class BaseConfluxer : BaseInfusion
+    public abstract class ConfluxerItem : InfusionItem
     {
         public override string Texture => $"Terraria/Images/Buff_{BuffID.NebulaUpLife3}";
     }

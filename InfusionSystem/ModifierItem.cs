@@ -7,7 +7,7 @@ using Terraria.ID;
 
 namespace Loita.InfusionSystem
 {
-    internal abstract class BaseModifier : BaseInfusion
+    public abstract class ModifierItem : InfusionItem
     {
         public override string Texture => $"Terraria/Images/Buff_{BuffID.NebulaUpMana3}";
     }

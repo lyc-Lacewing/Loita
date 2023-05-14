@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace Loita.Items.Spells
 {
-    internal class TestSpell : BaseSpell
+    internal class TestSpell : SpellItem
     {
-
+        public override void SetSpellDefaults()
+        {
+            Stats.Damage = 10;
+            Stats.Scatter = Math.PI / 16;
+            Stats.ManaCost = 4;
+        }
     }
 }

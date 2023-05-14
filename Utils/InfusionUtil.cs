@@ -1,5 +1,7 @@
 ﻿using Loita.InfusionSystem;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.VisualBasic;
+using Microsoft.Xna.Framework.Design;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,29 +11,38 @@ using Terraria.Localization;
 
 namespace Loita.Utils
 {
-    internal static class InfusionUtil
+    public static class InfusionUtil
     {
         public static bool IsInfusion(this ModItem item)
         {
-            return item.GetType().IsSubclassOf(typeof(BaseInfusion));
+            return item.GetType().IsSubclassOf(typeof(InfusionItem));
         }
         public static bool IsSpell(this ModItem item)
         {
-            return item.GetType().IsSubclassOf(typeof(BaseSpell));
+            return item.GetType().IsSubclassOf(typeof(SpellItem));
         }
         public static bool IsModifier(this ModItem item)
         {
-            return item.GetType().IsSubclassOf(typeof(BaseModifier));
+            return item.GetType().IsSubclassOf(typeof(ModifierItem));
         }
         public static bool IsConfluxer(this ModItem item)
         {
-            return item.GetType().IsSubclassOf(typeof(BaseConfluxer));
+            return item.GetType().IsSubclassOf(typeof(ConfluxerItem));
         }
 
-        public static object[] GetTooltipArgs(this BaseSpell spell)
+        public static object[] GetTooltipArgs(this SpellItem spell)
         {
             SpellStats stats = spell.Stats;
-            return new object[] { spell.GetType().ToString(), stats.Damage, stats.DamageType, stats.CritChance, stats.KnockBack, stats.Scatter, stats.ManaCost, stats.Delay, stats.Recharge };
+            return new object[] { 
+                Language.GetText($"Mods.Loita.Items.{spell.GetType().Name}.Tooltip").Value, 
+                stats.Damage, 
+                stats.DamageType.DisplayName, 
+                stats.CritChance, 
+                stats.KnockBack, 
+                stats.Scatter.RadToDeg(), 
+                stats.ManaCost, 
+                stats.Delay.TickToSecond().ToSigned(), 
+                stats.Recharge.TickToSecond().ToSigned() };
         }
     }
 }

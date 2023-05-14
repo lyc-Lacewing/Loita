@@ -8,9 +8,8 @@ using Terraria.Localization;
 
 namespace Loita.InfusionSystem
 {
-    internal abstract class BaseSpell : BaseInfusion
+    public abstract class SpellItem : InfusionItem
     {
-        public LocalizedText Description => this.GetLocalization(nameof(Description));
 
         public SpellStats Stats = new SpellStats();
 
@@ -19,7 +18,12 @@ namespace Loita.InfusionSystem
             
         }
 
-        public override LocalizedText Tooltip => Language.GetOrRegister("Mods.Loita.Spells.Tooltip").WithFormatArgs(this.GetTooltipArgs()); //TODO proper tooltip
+        public override LocalizedText Tooltip => Language.GetOrRegister("Mods.Loita.Spells.Tooltip").WithFormatArgs(this.GetTooltipArgs());
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            SetSpellDefaults();
+        }
     }
 
     public class SpellStats
@@ -52,11 +56,11 @@ namespace Loita.InfusionSystem
         /// <summary>
         /// Speed of the spell, if applicable.
         /// </summary>
-        public float Speed = 8;
+        public float Speed = 4;
         /// <summary>
         /// Scatter of the spell, if applicable.
         /// </summary>
-        public float Scatter = 0;
+        public double Scatter = 0;
 
         // In a Sequence
         /// <summary>
