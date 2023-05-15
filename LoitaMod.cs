@@ -28,5 +28,6 @@ namespace LoitaMod
 		 */
 
 		//TODO Rewrite the things using components
+		//TODO ECS
     }
 }
