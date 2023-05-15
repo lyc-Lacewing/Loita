@@ -19,7 +19,7 @@ namespace LoitaMod.InfusionSystem
             Item.useAnimation = 32;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.UseSound = SoundID.MaxMana;
-            Item.maxStack = 1;
+            Item.maxStack = Item.CommonMaxStack;
         }
     }
 }
