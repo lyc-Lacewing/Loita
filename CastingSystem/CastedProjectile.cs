@@ -12,7 +12,6 @@ namespace LoitaMod.CastingSystem
         public override bool InstancePerEntity => true;
 
         public bool DoAI = true;
-        public Dictionary<>
         public override bool PreAI(Projectile projectile)
         {
             
@@ -24,4 +23,5 @@ namespace LoitaMod.CastingSystem
         SetDefaults,
         PreAI,
         PostAI
-    }}
+    }
+}

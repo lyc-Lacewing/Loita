@@ -5,14 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using LoitaMod.InfusionSystem;
 using Terraria.ID;
+using static LoitaMod.InfusionSystem.ModifierSystem.ModifierBase;
 
 namespace LoitaMod.InfusionSystem.ModifierSystem
 {
     public abstract class ModifierItem : InfusionItem
     {
-        public ModifierStats Stats = new ModifierStats();
-        public ModifierActions Actions = new ModifierActions();
-
+        public ModifierBase Modifier = new ModifierBase();
         public virtual void SetModifierDefaults()
         {
 
@@ -26,37 +25,8 @@ namespace LoitaMod.InfusionSystem.ModifierSystem
         public override ModItem Clone(Item newEntity)
         {
             ModifierItem clone = (ModifierItem)MemberwiseClone();
-            clone.Stats = Stats.Clone();
-            clone.Actions = Actions.Clone();
+            clone.Modifier = Modifier.Clone();
             return clone;
-        }
-    }
-    public class ModifierStats
-    {
-        public StatModifier Damage = new StatModifier();
-        public StatModifier CritChance = new StatModifier();
-        public StatModifier CritDamage = new StatModifier();
-        public StatModifier KnockBack = new StatModifier();
-        public StatModifier Speed = new StatModifier();
-        public StatModifier Scatter = new StatModifier();
-        public StatModifier Delay = new StatModifier();
-        public StatModifier Recharge = new StatModifier();
-        public StatModifier ManaCost = new StatModifier();
-
-        public ModifierStats Clone()
-        {
-            return (ModifierStats)MemberwiseClone();
-        }
-    }
-    public class ModifierActions
-    {
-        public ModifierActions Clone()
-        {
-            return (ModifierActions)MemberwiseClone();
-        }
-        public virtual void ModifyProjectiles(Projectile[] projectiles)
-        {
-
         }
     }
 }

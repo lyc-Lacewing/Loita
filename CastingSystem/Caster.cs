@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace LoitaMod.CastingSystem
 {
-    public class Caster
+    public static class Caster
     {
-        public static void InitializeInfusions(Player player, Item item)
+        public static void RefreshSequence(Player player, Item item)
         {
             if (!item.TryGetGlobalItem(out WandBase wand) || !player.TryGetModPlayer(out Loita loita))
             {
@@ -27,12 +27,19 @@ namespace LoitaMod.CastingSystem
                 loita.Sequence.Add(infusion.Clone());
             }
         }
+        public static List<Assemblage> Assemble(List<Item> sequence)
+        {
+            List<Assemblage> assemblages = new List<Assemblage>();
+            for (int i = 0; i < sequence.Count; i++)
+            {
+
+            }
+            return assemblages;
+        }
     }
     public class Assemblage
     {
-        public List<SpellStats> SpellStats = new List<SpellStats>();
-        public List<SpellActions> SpellActions = new List<SpellActions>();
-        public List<ModifierStats> ModifierStats = new List<ModifierStats>();
-        public List<ModifierActions> ModifierActions = new List<ModifierActions>();
+        public List<SpellBase> Spells = new List<SpellBase>();
+        public List<ModifierBase> Modifiers = new List<ModifierBase>();
     }
 }
