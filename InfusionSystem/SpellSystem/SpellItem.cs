@@ -1,4 +1,6 @@
 ﻿using LoitaMod.CastingSystem;
+using LoitaMod.InfusionSystem;
+using LoitaMod.InfusionSystem.ModifierSystem;
 using LoitaMod.Utils;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria.Localization;
 
-namespace LoitaMod.InfusionSystem
+namespace LoitaMod.InfusionSystem.SpellSystem
 {
     public abstract class SpellItem : InfusionItem
     {

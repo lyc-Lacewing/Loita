@@ -1,4 +1,7 @@
 ﻿using LoitaMod.InfusionSystem;
+using LoitaMod.InfusionSystem.ConfluxerSystem;
+using LoitaMod.InfusionSystem.ModifierSystem;
+using LoitaMod.InfusionSystem.SpellSystem;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.VisualBasic;
 using Microsoft.Xna.Framework.Design;

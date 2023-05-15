@@ -1,4 +1,5 @@
-﻿using LoitaMod.InfusionSystem;
+﻿using LoitaMod.InfusionSystem.ModifierSystem;
+using LoitaMod.InfusionSystem.SpellSystem;
 using LoitaMod.WandSystem;
 using System;
 using System.Collections.Generic;

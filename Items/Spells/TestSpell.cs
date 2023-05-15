@@ -1,4 +1,4 @@
-﻿using LoitaMod.InfusionSystem;
+﻿using LoitaMod.InfusionSystem.SpellSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;

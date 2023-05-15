@@ -11,11 +11,17 @@ namespace LoitaMod.CastingSystem
     {
         public override bool InstancePerEntity => true;
 
-        ModifierActions[] actions = new ModifierActions[] { };
+        public bool DoAI = true;
+        public Dictionary<>
         public override bool PreAI(Projectile projectile)
         {
-
-            return base.PreAI(projectile);
+            
+            return DoAI;
         }
     }
-}
+    public enum Hook
+    {
+        SetDefaults,
+        PreAI,
+        PostAI
+    }}

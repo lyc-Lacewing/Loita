@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LoitaMod.InfusionSystem;
 using Terraria.ID;
 
-namespace LoitaMod.InfusionSystem
+namespace LoitaMod.InfusionSystem.ModifierSystem
 {
     public abstract class ModifierItem : InfusionItem
     {
