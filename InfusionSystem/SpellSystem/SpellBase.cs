@@ -12,14 +12,17 @@ namespace LoitaMod.InfusionSystem.SpellSystem
     public class SpellBase
     {
         public SpellStats Stats = new SpellStats();
-        public SpellActions Actions = new SpellActions();
 
         public SpellBase Clone()
         {
             SpellBase clone = (SpellBase)MemberwiseClone();
             clone.Stats = Stats.Clone();
-            clone.Actions = Actions.Clone();
             return clone;
+        }
+
+        public bool RegisterLoitaHook(LoitaHook type, Action<Loita> hook)
+        {
+            return Loita.SpellHooks.TryAdd((type, this), hook);
         }
     }
     public class SpellStats
@@ -71,17 +74,6 @@ namespace LoitaMod.InfusionSystem.SpellSystem
         public SpellStats Clone()
         {
             return (SpellStats)MemberwiseClone();
-        }
-    }
-    public class SpellActions
-    {
-        public SpellActions Clone()
-        {
-            return (SpellActions)MemberwiseClone();
-        }
-        public bool RegisterCVastingHook()
-        {
-            return true;
         }
     }
 }

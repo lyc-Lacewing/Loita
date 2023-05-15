@@ -16,28 +16,44 @@ namespace LoitaMod.Utils
 {
     public static class InfusionUtil
     {
-        public static bool IsInfusion(this ModItem item)
+        public static bool IsInfusion(this ModItem modItem)
         {
-            return item.GetType().IsSubclassOf(typeof(InfusionItem));
+            return modItem.GetType().IsSubclassOf(typeof(InfusionItem));
         }
-        public static bool IsSpell(this ModItem item)
+        public static bool IsSpell(this ModItem modItem)
         {
-            return item.GetType().IsSubclassOf(typeof(SpellItem));
+            return modItem.GetType().IsSubclassOf(typeof(SpellItem));
         }
-        public static bool IsModifier(this ModItem item)
+        public static bool IsModifier(this ModItem modItem)
         {
-            return item.GetType().IsSubclassOf(typeof(ModifierItem));
+            return modItem.GetType().IsSubclassOf(typeof(ModifierItem));
         }
-        public static bool IsConfluxer(this ModItem item)
+        public static bool IsConfluxer(this ModItem modItem)
         {
-            return item.GetType().IsSubclassOf(typeof(ConfluxerItem));
+            return modItem.GetType().IsSubclassOf(typeof(ConfluxerItem));
+        }
+        public static InfusionClass GetInfusionClass(ModItem modItem)
+        {
+            if (modItem.GetType().IsSubclassOf(typeof(SpellBase)))
+            {
+                return InfusionClass.Spell;
+            }
+            if (modItem.GetType().IsSubclassOf(typeof(ModifierBase)))
+            {
+                return InfusionClass.Modifier;
+            }
+            if (modItem.GetType().IsSubclassOf(typeof(ConfluxerBase)))
+            {
+                return InfusionClass.Confluxer;
+            }
+            return InfusionClass.None;
         }
 
-        public static object[] GetTooltipArgs(this SpellItem spell)
+        public static object[] GetTooltipArgs(this SpellItem item)
         {
-            SpellStats stats = spell.Stats;
+            SpellStats stats = item.Spell.Stats;
             return new object[] {
-                Language.GetText($"Mods.Loita.Items.{spell.GetType().Name}.Tooltip").Value,
+                Language.GetText($"Mods.Loita.Items.{item.GetType().Name}.Tooltip").Value,
                 stats.Damage,
                 stats.DamageType.DisplayName,
                 stats.CritChance,
@@ -47,5 +63,12 @@ namespace LoitaMod.Utils
                 stats.Delay.TickToSecond().ToSigned(),
                 stats.Recharge.TickToSecond().ToSigned() };
         }
+    }
+    public enum InfusionClass
+    {
+        None,
+        Spell,
+        Modifier,
+        Confluxer
     }
 }

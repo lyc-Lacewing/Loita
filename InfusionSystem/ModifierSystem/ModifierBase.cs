@@ -9,13 +9,11 @@ namespace LoitaMod.InfusionSystem.ModifierSystem
     public class ModifierBase
     {
         public ModifierStats Stats = new ModifierStats();
-        public ModifierActions Actions = new ModifierActions();
 
         public ModifierBase Clone()
         {
             ModifierBase clone = (ModifierBase)MemberwiseClone();
             clone.Stats = Stats.Clone();
-            clone.Actions = Actions.Clone();
             return clone;
         }
     }
@@ -34,17 +32,6 @@ namespace LoitaMod.InfusionSystem.ModifierSystem
         public ModifierStats Clone()
         {
             return (ModifierStats)MemberwiseClone();
-        }
-    }
-    public class ModifierActions
-    {
-        public ModifierActions Clone()
-        {
-            return (ModifierActions)MemberwiseClone();
-        }
-        public virtual void ModifyProjectiles(Projectile[] projectiles)
-        {
-
         }
     }
 }
