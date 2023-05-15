@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,13 +30,13 @@ namespace LoitaMod.InfusionSystem
     }
     public class ConfluxStats
     {
-        public double[] Orientation = new double[] { 0 };
+        public Vector2[] Orientation = new Vector2[] { Vector2.Zero };
         public double Scatter = 0;
 
         public ConfluxStats Clone()
         {
             ConfluxStats clone = (ConfluxStats)MemberwiseClone();
-            clone.Orientation = (double[])Orientation.Clone();
+            clone.Orientation = (Vector2[])Orientation.Clone();
             return clone;
         }
     }
