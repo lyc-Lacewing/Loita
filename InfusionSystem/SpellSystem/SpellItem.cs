@@ -8,23 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria.Localization;
-using static LoitaMod.InfusionSystem.SpellSystem.SpellBase;
 
 namespace LoitaMod.InfusionSystem.SpellSystem
 {
     public abstract class SpellItem : InfusionItem
     {
-        public SpellBase Spell = new SpellBase();
+        public Spell Spell;
+        public abstract void SetSpell();
 
-        public virtual void SetSpellDefaults()
-        {
-
-        }
+        public virtual void SetSpellDefaults() { }
 
         public override LocalizedText Tooltip => Language.GetOrRegister("Mods.Loita.Spells.Tooltip").WithFormatArgs(this.GetTooltipArgs());
         public override void SetDefaults()
         {
             base.SetDefaults();
+            SetSpell();
             SetSpellDefaults();
         }
         public override ModItem Clone(Item newEntity)

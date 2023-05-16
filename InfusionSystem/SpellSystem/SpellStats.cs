@@ -1,30 +1,11 @@
-﻿using LoitaMod.CastingSystem;
-using LoitaMod.InfusionSystem.ModifierSystem;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static LoitaMod.InfusionSystem.ModifierSystem.ModifierBase;
 
 namespace LoitaMod.InfusionSystem.SpellSystem
 {
-    public class SpellBase
-    {
-        public SpellStats Stats = new SpellStats();
-
-        public SpellBase Clone()
-        {
-            SpellBase clone = (SpellBase)MemberwiseClone();
-            clone.Stats = Stats.Clone();
-            return clone;
-        }
-
-        public bool RegisterLoitaHook(LoitaHook type, Action<Loita> hook)
-        {
-            return Loita.SpellHooks.TryAdd((type, this), hook);
-        }
-    }
     public class SpellStats
     {
         // The Spell itself
