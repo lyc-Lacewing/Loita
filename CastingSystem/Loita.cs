@@ -42,7 +42,6 @@ namespace LoitaMod.CastingSystem
     public class Assemblage
     {
         public List<ModifierBase> Modifiers = new List<ModifierBase>();
-        public List<SpellBase> Spells = new List<SpellBase>();
         public List<Assemblage> Assemblages = new List<Assemblage>();
         public List<Vector2> Orientation = new List<Vector2>();
     }
