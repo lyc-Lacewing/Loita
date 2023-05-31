@@ -27,7 +27,11 @@ namespace LoitaMod
 		 * 法术单元: Assemblage, 法术修饰与法术组成的单元, 可包含多个修饰或法术
 		 */
 
-		//TODO Rewrite the things using components
-		//TODO ECS
+        //TODO ECS
+        // 给法术写组件, 在法术组件里给法术发射的proj挂组件
+        // 给组件写命中行为, Hook挂到OnHit, 再把组件给proj
+        // 令命中的敌人着火, 所以给它添加一个命中着火组件
+        // 不管是GNPC还是GProjectile, 它都是IEntity
+        // 所以它们都能添加组件
     }
 }
